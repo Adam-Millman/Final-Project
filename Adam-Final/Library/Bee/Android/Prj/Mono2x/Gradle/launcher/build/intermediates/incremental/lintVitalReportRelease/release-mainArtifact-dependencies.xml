@@ -1,0 +1,23 @@
+<dependencies>
+  <compile
+      roots="C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\Bee\Android\Prj\Mono2x\Gradle@@:unityLibrary::release">
+    <dependency
+        name="C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\Bee\Android\Prj\Mono2x\Gradle@@:unityLibrary::release"
+        simpleName="Gradle:unityLibrary"/>
+  </compile>
+  <package
+      roots="C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\Bee\Android\Prj\Mono2x\Gradle@@:unityLibrary::release,__local_aars__:C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\libs\unity-classes.jar:unspecified@jar,:OVRPlugin:@aar,C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\Bee\Android\Prj\Mono2x\Gradle@@:unityLibrary:xrmanifest.androidlib::release">
+    <dependency
+        name="C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\Bee\Android\Prj\Mono2x\Gradle@@:unityLibrary::release"
+        simpleName="Gradle:unityLibrary"/>
+    <dependency
+        name="__local_aars__:C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\libs\unity-classes.jar:unspecified@jar"
+        simpleName="__local_aars__:C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\libs\unity-classes.jar"/>
+    <dependency
+        name=":OVRPlugin:@aar"
+        simpleName=":OVRPlugin"/>
+    <dependency
+        name="C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\Bee\Android\Prj\Mono2x\Gradle@@:unityLibrary:xrmanifest.androidlib::release"
+        simpleName="Gradle.unityLibrary:xrmanifest.androidlib"/>
+  </package>
+</dependencies>
