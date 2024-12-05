@@ -325,6 +325,7 @@
 "Assets/Keypad/Scripts/KeypadButton.cs"
 "Assets/Keypad/Scripts/KeypadInteractionFPV.cs"
 "Assets/Keypad/Scripts/SlidingDoor.cs"
+"Assets/Scripts/ChangeSceneOnCollision.cs"
 "Assets/Scripts/Hand.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"

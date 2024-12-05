@@ -1,10 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - NavKeypad.Keypad
-    - NavKeypad.KeypadButton
-    - NavKeypad.KeypadInteractionFPV
-    - NavKeypad.SlidingDoor
+    - ChangeSceneOnCollision
+    - Hand
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
     - UnityEngine.InputSystem.InputActionReference
@@ -22,15 +20,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    Unity.TextMeshPro.dll:
-    - TMPro.TMP_FontAsset
-    - TMPro.TMP_Settings
-    - TMPro.TMP_SpriteAsset
-    - TMPro.TMP_StyleSheet
-    - TMPro.TMP_SubMeshUI
-    - TMPro.TextMeshProUGUI
-    Unity.Timeline.Editor.dll:
-    - TimelineProjectSettings
     Unity.XR.CoreUtils.dll:
     - Unity.XR.CoreUtils.XROrigin
     Unity.XR.Interaction.Toolkit:
@@ -39,16 +28,21 @@ ScriptsOnlyBuild:
     Unity.XR.Interaction.Toolkit.Editor.dll:
     - UnityEditor.XR.Interaction.Toolkit.XRInteractionEditorSettings
     Unity.XR.Interaction.Toolkit.dll:
+    - UnityEngine.XR.Interaction.Toolkit.ActionBasedContinuousMoveProvider
     - UnityEngine.XR.Interaction.Toolkit.ActionBasedController
+    - UnityEngine.XR.Interaction.Toolkit.ActionBasedSnapTurnProvider
+    - UnityEngine.XR.Interaction.Toolkit.CharacterControllerDriver
     - UnityEngine.XR.Interaction.Toolkit.Inputs.InputActionManager
     - UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation.XRDeviceSimulatorSettings
     - UnityEngine.XR.Interaction.Toolkit.InteractionLayerSettings
+    - UnityEngine.XR.Interaction.Toolkit.LocomotionSystem
+    - UnityEngine.XR.Interaction.Toolkit.XRDirectInteractor
+    - UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable
     - UnityEngine.XR.Interaction.Toolkit.XRInteractionManager
-    - UnityEngine.XR.Interaction.Toolkit.XRInteractorLineVisual
-    - UnityEngine.XR.Interaction.Toolkit.XRRayInteractor
+    - UnityEngine.XR.Interaction.Toolkit.XRPokeInteractor
+    - UnityEngine.XR.Interaction.Toolkit.XRSocketInteractor
     Unity.XR.Management.Editor.dll:
     - UnityEditor.XR.Management.XRGeneralSettingsPerBuildTarget
-    - UnityEditor.XR.Management.XRManagerSettingsEditor
     Unity.XR.Management.dll:
     - UnityEngine.XR.Management.XRGeneralSettings
     - UnityEngine.XR.Management.XRManagerSettings
@@ -86,15 +80,16 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.OpenXR.Features.Interactions.ValveIndexControllerProfile
     - UnityEngine.XR.OpenXR.OpenXRLoader
     - UnityEngine.XR.OpenXR.OpenXRSettings
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
-    UnityEngine.UI.dll:
-    - UnityEngine.EventSystems.EventSystem
-    - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.CanvasScaler
-    - UnityEngine.UI.LayoutElement
   serializedClasses:
     Unity.InputSystem:
     - UnityEngine.InputSystem.InputAction
@@ -117,8 +112,11 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
     - TMPro.TMP_Style
-    - TMPro.VertexGradient
     Unity.XR.Interaction.Toolkit:
+    - UnityEngine.XR.Interaction.Toolkit.ActivateEvent
+    - UnityEngine.XR.Interaction.Toolkit.DeactivateEvent
+    - UnityEngine.XR.Interaction.Toolkit.FocusEnterEvent
+    - UnityEngine.XR.Interaction.Toolkit.FocusExitEvent
     - UnityEngine.XR.Interaction.Toolkit.HoverEnterEvent
     - UnityEngine.XR.Interaction.Toolkit.HoverExitEvent
     - UnityEngine.XR.Interaction.Toolkit.InteractionLayerMask
@@ -126,6 +124,7 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.Interaction.Toolkit.SelectExitEvent
     - UnityEngine.XR.Interaction.Toolkit.UI.UIHoverEnterEvent
     - UnityEngine.XR.Interaction.Toolkit.UI.UIHoverExitEvent
+    - UnityEngine.XR.Interaction.Toolkit.XRInteractableEvent
     - UnityEngine.XR.Interaction.Toolkit.XRInteractorEvent
     Unity.XR.OpenXR:
     - UnityEngine.XR.OpenXR.OpenXRSettings/ColorSubmissionModeList
@@ -135,93 +134,67 @@ ScriptsOnlyBuild:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
-    - UnityEngine.Events.UnityEvent
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
-    UnityEngine.UI:
-    - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
   methodsToPreserve:
-  - assembly: Assembly-CSharp
-    fullTypeName: NavKeypad.SlidingDoor
-    methodName: OpenDoor
-  - assembly: Assembly-CSharp
-    fullTypeName: NavKeypad.SlidingDoor
-    methodName: CloseDoor
+  - assembly: UnityEngine.ParticleSystemModule
+    fullTypeName: UnityEngine.ParticleSystem
+    methodName: Play
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.ParticleSystemModule
+    fullTypeName: UnityEngine.ParticleSystem
+    methodName: Stop
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.ParticleSystemModule
+    fullTypeName: UnityEngine.ParticleSystem
+    methodName: Play
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.ParticleSystemModule
+    fullTypeName: UnityEngine.ParticleSystem
+    methodName: Stop
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.ParticleSystemModule
+    fullTypeName: UnityEngine.ParticleSystem
+    methodName: Play
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.ParticleSystemModule
+    fullTypeName: UnityEngine.ParticleSystem
+    methodName: Stop
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
   sceneClasses:
-    Assets/Keypad/Scenes/ExampleScene/Keypad_DoorExampleScene_Standard.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 64
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 16756}
-    - Class: 114
-      Script: {instanceID: 17578}
-    - Class: 114
-      Script: {instanceID: 17732}
-    - Class: 114
-      Script: {instanceID: 19008}
-    - Class: 114
-      Script: {instanceID: 19020}
-    - Class: 114
-      Script: {instanceID: 19944}
-    - Class: 114
-      Script: {instanceID: 20546}
-    - Class: 114
-      Script: {instanceID: 20842}
-    - Class: 114
-      Script: {instanceID: 20844}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
     Assets/Scenes/Level 1.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -243,20 +216,38 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 540}
+    - Class: 114
+      Script: {instanceID: 544}
+    - Class: 114
       Script: {instanceID: 548}
     - Class: 114
-      Script: {instanceID: 17034}
-    - Class: 114
       Script: {instanceID: 17306}
+    - Class: 114
+      Script: {instanceID: 18426}
     - Class: 114
       Script: {instanceID: 18656}
     - Class: 114
@@ -270,28 +261,232 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 19022}
     - Class: 114
+      Script: {instanceID: 19044}
+    - Class: 114
       Script: {instanceID: 19262}
     - Class: 114
       Script: {instanceID: 19944}
     - Class: 114
+      Script: {instanceID: 20190}
+    - Class: 114
       Script: {instanceID: 20352}
     - Class: 114
-      Script: {instanceID: 20790}
+      Script: {instanceID: 20576}
+    - Class: 114
+      Script: {instanceID: 20618}
+    - Class: 114
+      Script: {instanceID: 20690}
     - Class: 114
       Script: {instanceID: 21188}
     - Class: 114
       Script: {instanceID: 21382}
     - Class: 114
+      Script: {instanceID: 21384}
+    - Class: 114
       Script: {instanceID: 22048}
+    - Class: 114
+      Script: {instanceID: 82128}
     - Class: 115
       Script: {instanceID: 0}
-    - Class: 120
-      Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 143
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
+    Assets/Scenes/Level 2.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 540}
+    - Class: 114
+      Script: {instanceID: 544}
+    - Class: 114
+      Script: {instanceID: 548}
+    - Class: 114
+      Script: {instanceID: 18426}
+    - Class: 114
+      Script: {instanceID: 18658}
+    - Class: 114
+      Script: {instanceID: 18718}
+    - Class: 114
+      Script: {instanceID: 18802}
+    - Class: 114
+      Script: {instanceID: 19044}
+    - Class: 114
+      Script: {instanceID: 20190}
+    - Class: 114
+      Script: {instanceID: 20352}
+    - Class: 114
+      Script: {instanceID: 20576}
+    - Class: 114
+      Script: {instanceID: 20618}
+    - Class: 114
+      Script: {instanceID: 20690}
+    - Class: 114
+      Script: {instanceID: 21188}
+    - Class: 114
+      Script: {instanceID: 21384}
+    - Class: 114
+      Script: {instanceID: 22048}
+    - Class: 114
+      Script: {instanceID: 82128}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 143
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
+    Assets/Scenes/Level 3.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 540}
+    - Class: 114
+      Script: {instanceID: 544}
+    - Class: 114
+      Script: {instanceID: 548}
+    - Class: 114
+      Script: {instanceID: 18426}
+    - Class: 114
+      Script: {instanceID: 18658}
+    - Class: 114
+      Script: {instanceID: 18718}
+    - Class: 114
+      Script: {instanceID: 18802}
+    - Class: 114
+      Script: {instanceID: 19044}
+    - Class: 114
+      Script: {instanceID: 20190}
+    - Class: 114
+      Script: {instanceID: 20352}
+    - Class: 114
+      Script: {instanceID: 20576}
+    - Class: 114
+      Script: {instanceID: 20618}
+    - Class: 114
+      Script: {instanceID: 20690}
+    - Class: 114
+      Script: {instanceID: 21188}
+    - Class: 114
+      Script: {instanceID: 21384}
+    - Class: 114
+      Script: {instanceID: 22048}
+    - Class: 114
+      Script: {instanceID: 82128}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 143
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -2118,9 +2313,16 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.Interaction.Toolkit
     namespaceName: UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation
     className: TeleportationMultiAnchorVolume
+  - hash:
+      serializedVersion: 2
+      Hash: 9cb5f85a1ab41c1e1e8389e447815f0c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ChangeSceneOnCollision
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level 1.unity
-  - Assets/Keypad/Scenes/ExampleScene/Keypad_DoorExampleScene_Standard.unity
+  - Assets/Scenes/Level 2.unity
+  - Assets/Scenes/Level 3.unity
   playerPath: C:/Users/amill/Unity Projects/Adam Final/Final-Project/Adam-Final/runner
     runner.apk

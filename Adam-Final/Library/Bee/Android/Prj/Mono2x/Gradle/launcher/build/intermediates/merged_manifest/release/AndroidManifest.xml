@@ -28,6 +28,10 @@
     <uses-feature
         android:name="android.hardware.touchscreen.multitouch.distinct"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.vr.headtracking"
+        android:required="true"
+        android:version="1" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -58,17 +62,19 @@
 
         <activity
             android:name="com.unity3d.player.UnityPlayerActivity"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
+            android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|uiMode"
             android:exported="true"
             android:hardwareAccelerated="false"
             android:launchMode="singleTask"
             android:resizeableActivity="false"
-            android:screenOrientation="fullUser"
-            android:theme="@style/UnityThemeSelector" >
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
 
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.oculus.intent.category.VR" />
             </intent-filter>
 
             <meta-data
@@ -77,7 +83,26 @@
             <meta-data
                 android:name="notch_support"
                 android:value="true" />
+            <meta-data
+                android:name="com.oculus.vr.focusaware"
+                android:value="true" />
         </activity>
+
+        <meta-data
+            android:name="com.samsung.android.vr.application.mode"
+            android:value="vr_only" />
+        <meta-data
+            android:name="com.unity.xr.oculus.LowOverheadMode"
+            android:value="false" />
+        <meta-data
+            android:name="com.unity.xr.oculus.LateLatching"
+            android:value="false" />
+        <meta-data
+            android:name="com.unity.xr.oculus.LateLatchingDebug"
+            android:value="false" />
+        <meta-data
+            android:name="com.oculus.supportedDevices"
+            android:value="quest2" />
     </application>
 
 </manifest>
