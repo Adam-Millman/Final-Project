@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638688407857054032
-    m_Hash: 3998615925
+      ticks: 638697245664277935
+    m_Hash: 1503577039
   m_LockFileStatus:
     m_FilePath: C:/Users/amill/Unity Projects/Adam Final/Final-Project/Adam-Final/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638688408049308851
-    m_Hash: 3489934603
+      ticks: 638697245664399074
+    m_Hash: 67457257
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -533,6 +533,103 @@ m_ResolvedPackages:
   isDeprecated: 0
   deprecationMessage: 
   fingerprint: 
+- packageId: com.unity.splines@2.6.1
+  testable: 0
+  isDirectDependency: 1
+  version: 2.6.1
+  source: 1
+  resolvedPath: C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\PackageCache\com.unity.splines@2.6.1
+  assetPath: Packages/com.unity.splines
+  name: com.unity.splines
+  displayName: Splines
+  author:
+    name: 
+    email: 
+    url: 
+  category: Tool
+  type: tool
+  description: Work with curves and paths. Use the Splines package to generate objects
+    and behaviors along paths, create trajectories, and draw shapes.
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.1.0-preview.1
+    - 1.0.0-pre.5
+    - 1.0.0-pre.7
+    - 1.0.0-pre.8
+    - 1.0.0-pre.9
+    - 1.0.0
+    - 1.0.1
+    - 2.0.0-pre.2
+    - 2.0.0-pre.4
+    - 2.0.0
+    - 2.1.0
+    - 2.2.0
+    - 2.2.1
+    - 2.3.0
+    - 2.4.0
+    - 2.5.1
+    - 2.5.2
+    - 2.6.0
+    - 2.6.1
+    - 2.7.1
+    - 2.7.2
+    compatible:
+    - 2.6.1
+    - 2.7.1
+    - 2.7.2
+    recommended: 2.6.1
+    deprecated: []
+  dependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.mathematics
+    version: 1.2.1
+  - name: com.unity.settings-manager
+    version: 1.0.3
+  resolvedDependencies:
+  - name: com.unity.ugui
+    version: 1.0.0
+  - name: com.unity.modules.ui
+    version: 1.0.0
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.mathematics
+    version: 1.2.6
+  - name: com.unity.settings-manager
+    version: 2.0.1
+  keywords:
+  - spline
+  - curve
+  - path
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638522292040000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.splines.git
+    revision: f77ddc46ebeef1a8dca1264827b93dbec50d3772
+    path: 
+  unityLifecycle:
+    version: 2.6.1
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  fingerprint: 
 - packageId: com.unity.test-framework@1.1.33
   testable: 0
   isDirectDependency: 1
@@ -805,6 +902,7 @@ m_ResolvedPackages:
     - 3.2.0-pre.8
     - 3.2.0-pre.9
     - 3.2.0-pre.10
+    - 3.2.0-pre.11
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     compatible:
@@ -822,6 +920,7 @@ m_ResolvedPackages:
     - 3.2.0-pre.8
     - 3.2.0-pre.9
     - 3.2.0-pre.10
+    - 3.2.0-pre.11
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     recommended: 3.0.9
@@ -4129,6 +4228,69 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.6
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  fingerprint: 
+- packageId: com.unity.settings-manager@2.0.1
+  testable: 0
+  isDirectDependency: 0
+  version: 2.0.1
+  source: 1
+  resolvedPath: C:\Users\amill\Unity Projects\Adam Final\Final-Project\Adam-Final\Library\PackageCache\com.unity.settings-manager@2.0.1
+  assetPath: Packages/com.unity.settings-manager
+  name: com.unity.settings-manager
+  displayName: Settings Manager
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: A framework for making any serializable field a setting, complete
+    with a pre-built settings interface.
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.1.0-preview.4
+    - 0.1.0-preview.8
+    - 1.0.0
+    - 1.0.1
+    - 1.0.2
+    - 1.0.3
+    - 2.0.0
+    - 2.0.1
+    compatible:
+    - 2.0.1
+    recommended: 2.0.1
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637744099390000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.com/Unity-Technologies/com.unity.settings-manager.git
+    revision: 9b7c12d04ef880168151c127fd6b37b5931197dc
+    path: 
+  unityLifecycle:
+    version: 2.0.1
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0

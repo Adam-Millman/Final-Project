@@ -1,21 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class ChangeSceneOnCollision : MonoBehaviour
-{    
-    private string sceneToLoad = "Scenes/Level 2";
-    private void OnCollisionEnter(Collision collision)
+{
+
+    [SerializeField]
+    string nextLevel;
+   void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collider.gameObject.tag == "Player")
         {
-            if (!string.IsNullOrEmpty(sceneToLoad))
-            {
-                SceneManager.LoadScene(sceneToLoad);
-            }
-            else
-            {
-                Debug.LogWarning("Scene name not specified in the inspector.");
-            }
+            SceneManager.LoadScene("Scenes/" + nextLevel);
         }
     }
 }
